@@ -13,12 +13,32 @@ namespace TemaCriptografie
         internal void Start()
         {
             TemeBP teme;
-            teme = new Tema1();
-            teme.Run();
-            teme = new Tema2();
-            teme.Run();
-            teme = new Tema3();
-            teme.Run();
+            List<string> temeList = new List<string>();
+            temeList.Add("CezarCypher"); temeList.Add("Rot13");
+            Console.WriteLine();
+            int i = 1;
+            foreach(string tema in temeList)
+            {
+                Console.WriteLine(i + "." + tema);
+                i++;
+            }
+            Console.Write("Alegeti tema dorita: ");
+            int choice = int.Parse(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    teme = new Tema1();
+                    teme.Run();
+                    break;
+                case 2:
+                    teme = new Tema2();
+                    teme.Run();
+                    break;
+                case 3:
+                    teme = new Tema3();
+                    teme.Run();
+                    break;
+            }
         }
     }
 }
