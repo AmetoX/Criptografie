@@ -8,9 +8,17 @@ namespace TemaCriptografie.Teme
 {
     internal class Tema3 : TemeBP
     {
-        internal override void Problema()
+        internal override void Cripatare()
         {
             
+        }
+        internal override void DeCripatare()
+        {
+            
+        }
+        internal override void CriptoAnaliza()
+        {
+            //
         }
     }
 }

@@ -5,18 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace TemaCriptografie
+namespace TemaCriptografie // Cifrul Lui Cezar
 {
     internal class Tema1 : TemeBP
-    {
-        internal override void Problema()
-        {
-            Criptare();
-            DeCriptare();
-        }
-        
+    {     
         static int n = 3;
-        private void Criptare()
+        internal override void Cripatare()
         {
             Console.Write("Text: ");
             string text = Console.ReadLine();
@@ -46,7 +40,7 @@ namespace TemaCriptografie
             }
             Console.WriteLine("Textul codificat: " + t);
         }
-        private void DeCriptare()
+        internal override void DeCripatare()
         {
             Console.Write("Introduceti textul codificat: ");
             string text = Console.ReadLine();
@@ -75,6 +69,10 @@ namespace TemaCriptografie
                 }
             }
             Console.WriteLine("Textul decodificat: " + t2);
+        }
+        internal override void CriptoAnaliza()
+        {
+            //
         }
     }
 }

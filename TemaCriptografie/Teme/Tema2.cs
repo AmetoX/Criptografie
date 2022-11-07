@@ -8,15 +8,8 @@ namespace TemaCriptografie.Teme
 {
     internal class Tema2 : TemeBP
     {
-        internal override void Problema()
-        {
-            Criptare();
-            DeCriptare();
-            DeCriptarev2();
-        }
-
         static int n;
-        private void Criptare()
+        internal override void Cripatare()
         {
             Console.Write("Text: ");
             string text = Console.ReadLine();
@@ -48,7 +41,7 @@ namespace TemaCriptografie.Teme
             }
             Console.WriteLine("Textul codificat: " + t);
         }
-        private void DeCriptare()
+        internal override void DeCripatare()
         {
             Console.Write("Introduceti textul codificat: ");
             string text = Console.ReadLine();
@@ -78,35 +71,9 @@ namespace TemaCriptografie.Teme
             }
             Console.WriteLine("Textul decodificat: " + t2);
         }
-        private void DeCriptarev2()
+        internal override void CriptoAnaliza()
         {
-            Console.Write("Introduceti textul codificat: ");
-            string text = Console.ReadLine();
-            int index = text.Length;
-            string t3 = "";
-            int count = 0;
-            if (text != null)
-            {
-                while (count != index)
-                {
-                    char a = text[count];
-                    char b = ' ';
-                    count++;
-                    if (a == b)
-                    {
-                        a = b;
-                    }
-                    else
-                    {
-                        for (int i = 0; i < n; i++)
-                        {
-                            a--;
-                        }
-                    }
-                    t3 += a;
-                }
-            }
-            Console.WriteLine("Textul decodificat: " + t3);
+            //
         }
     }
 }

@@ -11,8 +11,12 @@ namespace TemaCriptografie
         internal TemeBP() { }
         internal void Run()
         {
-            Problema();
+            Cripatare();
+            DeCripatare();
+            CriptoAnaliza();
         }
-        internal abstract void Problema();
+        internal abstract void Cripatare();
+        internal abstract void DeCripatare();
+        internal abstract void CriptoAnaliza();
     }
 }
