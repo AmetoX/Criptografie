@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TemaCriptografie.Teme
 {
-    internal class Tema2 : TemeBP
+    internal class Tema2 : TemeBP // ShiftByN
     {
         static int n;
         internal override void Cripatare()
@@ -33,7 +33,12 @@ namespace TemaCriptografie.Teme
                     {
                         for (int i = 0; i < n; i++)
                         {
-                            a++;
+                            if (a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a++;
                         }
                     }
                     t += a;
@@ -63,7 +68,12 @@ namespace TemaCriptografie.Teme
                     {
                         for (int i = 0; i < n; i++)
                         {
-                            a--;
+                            if (a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a--;
                         }
                     }
                     t2 += a;

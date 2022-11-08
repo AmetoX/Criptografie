@@ -14,7 +14,7 @@ namespace TemaCriptografie
         {
             TemeBP teme;
             List<string> temeList = new List<string>();
-            temeList.Add("CezarCypher"); temeList.Add("Rot13");
+            temeList.Add("CezarCypher");temeList.Add("ShiftByN"); temeList.Add("Rot13");
             Console.WriteLine();
             int i = 1;
             foreach(string tema in temeList)

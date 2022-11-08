@@ -32,7 +32,12 @@ namespace TemaCriptografie // Cifrul Lui Cezar
                     {
                         for (int i = 0; i < n; i++)
                         {
-                            a++;
+                            if(a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a++;
                         }
                     }
                     t += a;
@@ -62,7 +67,12 @@ namespace TemaCriptografie // Cifrul Lui Cezar
                     {
                         for (int i = 0; i < n; i++)
                         {
-                            a--;
+                            if (a == 'a')
+                            {
+                                a = 'z';
+                            }
+                            else
+                                a--;
                         }
                     }
                     t2 += a;
