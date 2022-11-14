@@ -14,7 +14,7 @@ namespace TemaCriptografie
         {
             TemeBP teme;
             List<string> temeList = new List<string>();
-            temeList.Add("CezarCypher");temeList.Add("ShiftByN"); temeList.Add("Rot13"); temeList.Add("Permutare Aleatorie");
+            temeList.Add("CezarCypher");temeList.Add("ShiftByN"); temeList.Add("Rot13"); temeList.Add("Permutare Aleatorie");temeList.Add("Cilindrul Jefferson");
             Console.WriteLine();
             int i = 1;
             foreach(string tema in temeList)
@@ -40,6 +40,10 @@ namespace TemaCriptografie
                     break;
                 case 4:
                     teme = new Tema4();
+                    teme.Run();
+                    break;
+                case 5:
+                    teme = new Tema5();
                     teme.Run();
                     break;
             }
