@@ -17,20 +17,29 @@ namespace TemaCriptografie.Teme
             int index = text.Length;
             key= new int[index];
             string t = "";
-            int count = 0, n;           
+            int textcount = 0;int n; int count = 0;          
             if (text != null)
             {
-                while (count < index)
+                while (textcount < index)
                 {
-                    char a = text[count];
+                    char a = text[textcount];
                     char b = ' ';
-                    n = random.Next(1, 26);                    
-                    count++;
-                    if (a == b && count != index)
+                    n = random.Next(1, 26);                                        
+                    if (a == b && textcount != index)
                     {
-                        //a = b;
-                        a = text[count];
+                        textcount++;
+                        a = text[textcount];
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a++;
+                        }
                         
+                        textcount++;
                     }
                     else
                     {
@@ -43,9 +52,10 @@ namespace TemaCriptografie.Teme
                             else
                                 a++;
                         }
-                        key[count] = n;
                         
+                        textcount++;
                     }
+                    key[count] = n;
                     count++;
                     t += a;
                 }
@@ -59,19 +69,27 @@ namespace TemaCriptografie.Teme
             string text = Console.ReadLine();
             int index = text.Length;
             string t2 = "";
-            int count = 0, contor = 0;
+            int textcount = 0, contor = 0;
             if (text != null)
             {
-                while (count != index)
+                while (textcount != index)
                 {
-                    char a = text[count];
+                    char a = text[textcount];
                     char b = ' ';
-                    count++;
-                    if (a == b && count != index)
+                    if (a == b && textcount != index)
                     {
-                        //a = b;
-                        a = text[count];
-                        count++;
+                        textcount++;
+                        a = text[textcount];
+                        for (int i = 0; i < key[contor]; i++)
+                        {
+                            if (a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a--;
+                        }
+                        contor++;
                     }
                     else
                     {
@@ -85,8 +103,9 @@ namespace TemaCriptografie.Teme
                             else
                                 a--;
                         }
-                        contor++;
+                        contor++;                        
                     }
+                    textcount++;
                     t2 += a;
                 }
             }

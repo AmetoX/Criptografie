@@ -27,8 +27,17 @@ namespace TemaCriptografie.Teme
                     count++;
                     if (a == b && count != index)
                     {
-                        //a = b;
+                        a = b;
                         a = text[count];
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a++;
+                        }
                         count++;
                     }
                     else
@@ -64,8 +73,16 @@ namespace TemaCriptografie.Teme
                     count++;
                     if (a == b && count != index)
                     {
-                        //a = b;
                         a = text[count];
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a--;
+                        }
                         count++;
                     }
                     else
