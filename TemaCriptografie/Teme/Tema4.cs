@@ -20,16 +20,17 @@ namespace TemaCriptografie.Teme
             int count = 0, n;           
             if (text != null)
             {
-                while (count != index)
+                while (count < index)
                 {
                     char a = text[count];
                     char b = ' ';
-                    n = random.Next(1, 26);
-                    key[count] = n;
-                    count++;                    
-                    if (a == b)
+                    n = random.Next(1, 26);                    
+                    count++;
+                    if (a == b && count != index)
                     {
-                        a = b;
+                        //a = b;
+                        a = text[count];
+                        
                     }
                     else
                     {
@@ -42,7 +43,10 @@ namespace TemaCriptografie.Teme
                             else
                                 a++;
                         }
+                        key[count] = n;
+                        
                     }
+                    count++;
                     t += a;
                 }
             }
@@ -63,9 +67,11 @@ namespace TemaCriptografie.Teme
                     char a = text[count];
                     char b = ' ';
                     count++;
-                    if (a == b)
+                    if (a == b && count != index)
                     {
-                        a = b;
+                        //a = b;
+                        a = text[count];
+                        count++;
                     }
                     else
                     {

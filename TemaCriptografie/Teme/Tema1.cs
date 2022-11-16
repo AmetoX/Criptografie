@@ -19,15 +19,24 @@ namespace TemaCriptografie // Cifrul Lui Cezar
             int count = 0;
             if (text != null)
             {
-                while (count != index)
+                while (count < index)
                 {
                     char a = text[count];
                     char b = ' ';
                     count++;
                     if (a == b && count != index)
                     {
-                        //a = b;
+                        a = b;
                         a = text[count];
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (a == 'z')
+                            {
+                                a = 'a';
+                            }
+                            else
+                                a++;
+                        }
                         count++;
                     }
                     else
@@ -64,8 +73,17 @@ namespace TemaCriptografie // Cifrul Lui Cezar
                     if (a == b && count != index)
                     {
                         //a = b;
-                        a = text[count];
-                        count++;
+                        //a = text[count];
+                        //for (int i = 0; i < n; i++)
+                        //{
+                        //    if (a == 'z')
+                        //    {
+                        //        a = 'a';
+                        //    }
+                        //    else
+                        //        a--;
+                        //}
+                        //count++;
                     }
                     else
                     {
