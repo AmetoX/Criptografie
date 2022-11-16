@@ -22,9 +22,11 @@ namespace TemaCriptografie.Teme
                     char a = text[count];
                     char b = ' ';
                     count++;
-                    if (a == b)
+                    if (a == b && count != index)
                     {
-                        a = b;
+                        //a = b;
+                        a = text[count];
+                        count++;
                     }
                     else
                     {
@@ -57,9 +59,11 @@ namespace TemaCriptografie.Teme
                     char a = text[count];
                     char b = ' ';
                     count++;
-                    if (a == b)
+                    if (a == b && count != index)
                     {
-                        a = b;
+                        //a = b;
+                        a = text[count];
+                        count++;
                     }
                     else
                     {

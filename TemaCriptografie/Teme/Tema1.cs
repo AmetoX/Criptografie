@@ -24,9 +24,11 @@ namespace TemaCriptografie // Cifrul Lui Cezar
                     char a = text[count];
                     char b = ' ';
                     count++;
-                    if (a == b)
+                    if (a == b && count != index)
                     {
-                        a = b;
+                        //a = b;
+                        a = text[count];
+                        count++;
                     }
                     else
                     {
@@ -59,9 +61,11 @@ namespace TemaCriptografie // Cifrul Lui Cezar
                     char a = text[count];
                     char b = ' ';
                     count++;
-                    if (a == b)
+                    if (a == b && count != index)
                     {
-                        a = b;
+                        //a = b;
+                        a = text[count];
+                        count++;
                     }
                     else
                     {
