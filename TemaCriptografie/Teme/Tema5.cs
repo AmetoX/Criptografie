@@ -8,7 +8,7 @@ using TemaCriptografie.Library;
 
 namespace TemaCriptografie.Teme
 {
-    internal class Tema5 : TemeBP // Cilindrul Jefferson
+    internal class Tema5 : TemeBP // Cilindrul Jefferson - in lucru
     {
         int n;
         char[,] cilindru;
