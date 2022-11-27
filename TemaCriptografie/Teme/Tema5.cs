@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using TemaCriptografie.Library;
 
 namespace TemaCriptografie.Teme
 {
@@ -12,37 +13,31 @@ namespace TemaCriptografie.Teme
         int n;
         char[,] cilindru;
         int[] key;
-        static int Next(RNGCryptoServiceProvider random)
-        {
-            byte[] randomInt = new byte[4];
-            random.GetBytes(randomInt);
-            return Convert.ToInt32(randomInt[0]);
-            //arr = arr.OrderBy(x => Next(random)).ToArray();
-        }
         internal override void Cripatare()
-        {
-            RNGCryptoServiceProvider random = new RNGCryptoServiceProvider();
+        {           
             Console.Write("Numarul de discuri: ");
             n = int.Parse(Console.ReadLine());
             Console.Write("Text: ");
             string text = Console.ReadLine();
             int index = text.Length;
             key = new int[index];
-            string t = "";
-            
+            string t = "";            
 
             //generare cilindru
             cilindru= new char[26,n];
             char a = 'a';
-            for (int i = 0; i < 26; i++)
+            for (int i = 0; i < n; i++)
             {                 
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < 26; j++)
                 {
-                    cilindru[i, j] = a;                   
+                    cilindru[j, i] = a;
+                    a++;
                 }
-                a++;
+                a = 'a';
             }
-           
+
+            MatrixEdit Matrix = new MatrixEdit();
+            Matrix.MatrixRandomize(cilindru);
             show(cilindru, n);
             
             //caut literele pe discuri
