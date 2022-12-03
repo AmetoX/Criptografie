@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TemaCriptografie.Library
 {
-    public class MatrixEdit
+    public class MatrixEdit  // amestec literele din matrice pe coloane pt ca fiecare coloana are litere de la a - z
     {
         private static int Next(RNGCryptoServiceProvider random)
         {
@@ -34,7 +34,7 @@ namespace TemaCriptografie.Library
                 {
                     matrice[j, i] = arr[j];
                 }
-                m--;
+                
             }
             
             return matrice;

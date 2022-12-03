@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using TemaCriptografie.Library;
 
 namespace TemaCriptografie.Teme
 {
-    internal class Tema5 : TemeBP // Cilindrul Jefferson - in lucru
+    internal class Tema5 : TemeBP // Cilindrul Jefferson - putin diferit
     {
         int n;
         char[,] cilindru;
@@ -41,30 +42,39 @@ namespace TemaCriptografie.Teme
             show(cilindru, n);
             
             //caut literele pe discuri
-            int count = 0;//literele
-            int contor = 0;//coloanele
-            while(contor != n) 
+            int litera = 0;//literele
+            int coloana = 0;//coloanele
+            while(coloana != n) 
             { 
                 for(int i = 0; i < 26; i++)
                 {
-                    if (count != index)
+                    if (litera != index)
                     {
-                        char b = text[count];
-                        if (contor != n && cilindru[i, contor] == b)
+                        int auxRand = i;
+                        char b = text[litera];
+                        char c = ' ';
+                        if (coloana != n && cilindru[i, coloana] == b)
                         {
-                            Console.WriteLine("i = " + i + " j= " + contor);
-                            key[contor] = i;
-                            if(cilindru[i, contor] == 'z')
+                            Console.WriteLine("i = " + i + " j= " + coloana);
+                            key[coloana] = i;//pozitia pe care se afla litera in coloana
+                            
+                            for (int j = 0; j < 3; j++)
                             {
-                                t += 'a';
-                                key[contor] = 0;
+                                auxRand +=  1;
+                                if(auxRand > 25)
+                                {
+                                    auxRand = 0;
+                                    c = cilindru[auxRand, coloana];
+                                }
+                                else
+                                {
+                                    c = cilindru[auxRand, coloana];
+                                }
+
                             }
-                            else
-                            {
-                                t += cilindru[i+1, contor];
-                            }
-                            contor++;
-                            count++;                           
+                            t += c;
+                            coloana++;
+                            litera++;                           
                             break;
                         }
                     }
@@ -76,15 +86,59 @@ namespace TemaCriptografie.Teme
                 Console.Write(key[i]+ " ");
             }
             Console.WriteLine();
-            for(int i = 0; i < t.Length; i++)
-            {
-                Console.Write(t[i]+ " ");
-            }
+            Console.WriteLine(t);
+            //for(int i = 0; i < t.Length; i++)
+            //{
+            //    Console.Write(t[i]+ " ");
+            //}
         }
 
         internal override void DeCripatare()
         {
+            Console.Write("Text: ");
+            string text = Console.ReadLine();
+            int index = text.Length;
+            string t = "";
+            int litera = 0;//literele
+            int coloana = 0;//coloanele
+            while (coloana != n)
+            {
+                for (int i = 0; i < 26; i++)
+                {
+                    if (litera != index)
+                    {
+                        int auxRand = i;
+                        char b = text[litera];
+                        char c = ' ';
+                        if (coloana != n && cilindru[i, coloana] == b)
+                        {
+                            Console.WriteLine("i = " + i + " j= " + coloana);
+                            key[coloana] = i;//pozitia pe care se afla litera in coloana
 
+                            for (int j = 0; j < 3; j++)
+                            {
+                                auxRand -= 1;
+                                if (auxRand < 0)
+                                {
+                                    auxRand = 25;
+                                    c = cilindru[auxRand, coloana];
+                                }
+                                else
+                                {
+                                    c = cilindru[auxRand, coloana];
+                                }
+
+                            }
+                            t += c;
+                            coloana++;
+                            litera++;
+                            break;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine(t);
         }
 
         internal override void CriptoAnaliza()
