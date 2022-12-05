@@ -16,11 +16,13 @@ namespace TemaCriptografie.Teme
         int[] key;
         internal override void Cripatare()
         {           
-            Console.Write("Numarul de discuri: ");
-            n = int.Parse(Console.ReadLine());
+            //Console.Write("Numarul de discuri: ");
+            //n = int.Parse(Console.ReadLine());
             Console.Write("Text: ");
             string text = Console.ReadLine();
             int index = text.Length;
+            Console.WriteLine("Cilindru va avea: {0} discuri" ,index);
+            n = index;
             key = new int[index];
             string t = "";            
 
@@ -40,7 +42,7 @@ namespace TemaCriptografie.Teme
             MatrixEdit Matrix = new MatrixEdit();
             Matrix.MatrixRandomize(cilindru);
             show(cilindru, n);
-            
+
             //caut literele pe discuri
             int litera = 0;//literele
             int coloana = 0;//coloanele
@@ -52,6 +54,7 @@ namespace TemaCriptografie.Teme
                     {
                         int auxRand = i;
                         char b = text[litera];
+                        
                         char c = ' ';
                         if (coloana != n && cilindru[i, coloana] == b)
                         {
@@ -86,7 +89,7 @@ namespace TemaCriptografie.Teme
                 Console.Write(key[i]+ " ");
             }
             Console.WriteLine();
-            Console.WriteLine(t);
+            Console.WriteLine($"Textul criptat este: {t} .");
             //for(int i = 0; i < t.Length; i++)
             //{
             //    Console.Write(t[i]+ " ");
@@ -95,7 +98,7 @@ namespace TemaCriptografie.Teme
 
         internal override void DeCripatare()
         {
-            Console.Write("Text: ");
+            Console.Write("Introduceti textul criptat: ");
             string text = Console.ReadLine();
             int index = text.Length;
             string t = "";
@@ -138,7 +141,7 @@ namespace TemaCriptografie.Teme
                 }
             }
             Console.WriteLine();
-            Console.WriteLine(t);
+            Console.WriteLine($"Textul decriptat este: {t}");
         }
 
         internal override void CriptoAnaliza()
