@@ -14,6 +14,8 @@ namespace TemaCriptografie.Teme
         int n;
         char[,] cilindru;
         int[] key;
+        Resources resource = new Resources();
+        Resources lowerUpper = new Resources();
         internal override void Cripatare()
         {           
             //Console.Write("Numarul de discuri: ");
@@ -39,13 +41,10 @@ namespace TemaCriptografie.Teme
                 }
                 a = 'a';
             }
-
-            Resources resource = new Resources();
+            
             resource.MatrixRandomize(cilindru);
-            show(cilindru, n);
-
-            Resources lower = new Resources();
-            text = lower.toLower(text);
+            show(cilindru, n);          
+            text = lowerUpper.toLower(text);
 
             //caut literele pe discuri
             int litera = 0;//literele
@@ -87,13 +86,16 @@ namespace TemaCriptografie.Teme
                     }
                 }
             }
+
             Console.WriteLine();
             for(int i = 0; i< key.Length; i++)
             {
                 Console.Write(key[i]+ " ");
             }
+
+            text = lowerUpper.toUpper(t);
             Console.WriteLine();
-            Console.WriteLine($"Textul criptat este: {t} .");
+            Console.WriteLine($"Textul criptat este: {text} .");
             //for(int i = 0; i < t.Length; i++)
             //{
             //    Console.Write(t[i]+ " ");
@@ -104,10 +106,13 @@ namespace TemaCriptografie.Teme
         {
             Console.Write("Introduceti textul criptat: ");
             string text = Console.ReadLine();
+            Console.WriteLine();
             int index = text.Length;
             string t = "";
             int litera = 0;//literele
             int coloana = 0;//coloanele
+
+            text = lowerUpper.toLower(text);
             while (coloana != n)
             {
                 for (int i = 0; i < 26; i++)
@@ -144,8 +149,9 @@ namespace TemaCriptografie.Teme
                     }
                 }
             }
+            text = lowerUpper.toUpper(t);
             Console.WriteLine();
-            Console.WriteLine($"Textul decriptat este: {t}");
+            Console.WriteLine($"Textul decriptat este: {text}");
         }
 
         internal override void CriptoAnaliza()
