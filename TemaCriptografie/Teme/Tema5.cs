@@ -45,6 +45,7 @@ namespace TemaCriptografie.Teme
             resource.MatrixRandomize(cilindru);
             show(cilindru, n);          
             text = lowerUpper.toLower(text);
+            Console.WriteLine();
 
             //caut literele pe discuri
             int litera = 0;//literele
