@@ -12,11 +12,11 @@ namespace TemaCriptografie
         internal void Run()
         {
             Cripatare();
-            DeCripatare();
+            DeCriptare();
             CriptoAnaliza();
         }
         internal abstract void Cripatare();
-        internal abstract void DeCripatare();
+        internal abstract void DeCriptare();
         internal abstract void CriptoAnaliza();
     }
 }

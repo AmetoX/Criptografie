@@ -22,6 +22,7 @@ namespace TemaCriptografie.Teme
             string text = Console.ReadLine();
             int index = text.Length;
             Console.WriteLine("Cilindru va avea: {0} discuri" ,index);
+            Console.WriteLine();
             n = index;
             key = new int[index];
             string t = "";            
@@ -39,9 +40,12 @@ namespace TemaCriptografie.Teme
                 a = 'a';
             }
 
-            MatrixEdit Matrix = new MatrixEdit();
-            Matrix.MatrixRandomize(cilindru);
+            Resources resource = new Resources();
+            resource.MatrixRandomize(cilindru);
             show(cilindru, n);
+
+            Resources lower = new Resources();
+            text = lower.toLower(text);
 
             //caut literele pe discuri
             int litera = 0;//literele
@@ -96,7 +100,7 @@ namespace TemaCriptografie.Teme
             //}
         }
 
-        internal override void DeCripatare()
+        internal override void DeCriptare()
         {
             Console.Write("Introduceti textul criptat: ");
             string text = Console.ReadLine();

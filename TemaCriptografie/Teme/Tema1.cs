@@ -55,7 +55,7 @@ namespace TemaCriptografie // Cifrul Lui Cezar
             }
             Console.WriteLine("Textul codificat: " + t);
         }
-        internal override void DeCripatare()
+        internal override void DeCriptare()
         {
             Console.Write("Introduceti textul codificat: ");
             string text = Console.ReadLine();

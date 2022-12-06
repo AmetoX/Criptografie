@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TemaCriptografie.Library
 {
-    public class MatrixEdit  // amestec literele din matrice pe coloane pt ca fiecare coloana are litere de la a - z
+    public class Resources  // amestec literele din matrice pe coloane pt ca fiecare coloana are litere de la a - z
     {
+        public Resources() { }
         private static int Next(RNGCryptoServiceProvider random)
         {
             byte[] randomInt = new byte[4];
@@ -38,6 +41,18 @@ namespace TemaCriptografie.Library
             }
             
             return matrice;
+        }
+        public string toLower(string text)
+        {
+            
+            string lower = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                string aux = text[i].ToString().ToLower();
+                lower += aux;               
+            }         
+           
+            return lower;
         }
     }
 }
