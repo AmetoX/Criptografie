@@ -23,7 +23,7 @@ namespace TemaCriptografie.Teme
             Console.Write("Text: ");
             string text = Console.ReadLine();
             int index = text.Length;
-            Console.WriteLine("Cilindru va avea: {0} discuri" ,index);
+            Console.WriteLine($"Cilindru va avea: {index} discuri");
             Console.WriteLine();
             n = index;
             key = new int[index];

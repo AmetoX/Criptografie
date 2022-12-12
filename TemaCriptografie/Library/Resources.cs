@@ -9,7 +9,8 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace TemaCriptografie.Library
 {
-    public class Resources  // amestec literele din matrice pe coloane pt ca fiecare coloana are litere de la a - z
+    public class Resources  // amestec literele din matrice pe coloane pt ca
+                            // fiecare coloana are litere de la a - z
     {
         public Resources() { }
         private static int Next(RNGCryptoServiceProvider random)
